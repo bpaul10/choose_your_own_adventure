@@ -8,4 +8,12 @@ Sources: Python crash course book using the python library
 
 class Character:
     #this will be the character for the game
-    
+    def __init__(self, name):
+        #this initializing the character with a name attached to it 
+        self.name = name
+
+    def opener (self):
+        #creating an opening line to the player 
+        return f"Salutations I am {self.name}."
+
+
