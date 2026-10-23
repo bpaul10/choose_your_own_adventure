@@ -6,6 +6,31 @@ Sources: Python crash course book using the python library
 10/23/26
 """
 
+class Player():
+    """the actual player of the game and 
+    how the adventure will be tracked"""
+    def __init__(self, name, current_scene ="" ):
+        """initializing the player with the
+        name and what scene they are going to be starting in"""
+        super().__init__(name)
+        self.current_scene= current_scene
+        self.choics_made = [] #keeping track
+
+    def make_choice (self, choice, next_scene):
+        """will keep track ooof a choice and then tell 
+        the program what the next scene will be"""
+        self.choics_made.append(choice) #adds the choice to the list of choices made
+        self.current_scene = next_scene #updates current scene
+
+    def send_to_dict(self):
+        """ return the player  data for the json file """
+        return{
+            "name": self.name, 
+            "current_scene": self.current_scene, 
+            "choices_made": self.choices_made, 
+        }
+
+
 class Character:
     #this will be the character for the game
     def __init__(self, name):
