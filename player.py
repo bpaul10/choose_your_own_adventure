@@ -30,6 +30,8 @@ class Player():
             "choices_made": self.choices_made, 
         }
 
+    
+
 
 class Character:
     #this will be the character for the game

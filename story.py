@@ -14,16 +14,21 @@ STORY = {
     outcome written in 
     """
     "forest":{ 
-        "title": "",
-        "description": (""),
+        "title": "Freaky Forest",
+        "description": ("You have entered a forest with a bunch of freaky objects and animals"
+                        "You must remain strong and determine what to do"
+                        "You walk deeper into the forest and find a freak fork in the road. "
+                        "It appears to go off into 2 sections one where light appears to be coming from the end"
+                        "and then another one where there is a lot bird noises"
+                     ),
 
         "choices": {
             "1":{
-                "info": "",
+                "info": "Go towards the light",
                 "next scene": "",
             },
             "2":{
-                "info": "",
+                "info": "go towards the bird noises",
                 "next scene": "",
             },            
         },
