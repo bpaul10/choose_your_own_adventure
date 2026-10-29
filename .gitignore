@@ -1,0 +1,23 @@
+
+#these are the python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+#the virtual enviornments
+.venv/
+venv/
+env/
+
+#the test and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+#the game saves
+saves/*.json
+!saves/.gitkeep
+
+#the editor 
+.vscode/
+

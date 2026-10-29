@@ -14,7 +14,7 @@ class Player():
         name and what scene they are going to be starting in"""
         super().__init__(name)
         self.current_scene= current_scene
-        self.choics_made = [] #keeping track
+        self.choics_made = [] #keeping track with a list 
 
     def make_choice (self, choice, next_scene):
         """will keep track ooof a choice and then tell 
@@ -29,9 +29,19 @@ class Player():
             "current_scene": self.current_scene, 
             "choices_made": self.choices_made, 
         }
-
     
+    def from_dict(cls, data): #creates object
 
+        return cls( #making the instance of the class 
+                name = data['name'], #grabs name from the dictonary 
+                current_scene=data["current_scene"] #gets the scene from the dictonary 
+
+            ).restore_choices(data.get("choices_made", [])) #brings back the saved choices from the list
+    def restore_choices(self, choices):
+        """will bring pback the players previous choices from list"""
+        self.choics_made= list(choices) #takes the player and then its attribute being th choices made and then updates them 
+
+        return self
 
 class Character:
     #this will be the character for the game
