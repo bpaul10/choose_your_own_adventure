@@ -9,10 +9,9 @@ Sources: Python crash course book using the python library
 class Player():
     """the actual player of the game and 
     how the adventure will be tracked"""
-    def __init__(self, name, current_scene ="" ):
+    def __init__(self, name, current_scene ="start" ):
         """initializing the player with the
         name and what scene they are going to be starting in"""
-        super().__init__(name)
         self.current_scene= current_scene
         self.choics_made = [] #keeping track with a list 
 

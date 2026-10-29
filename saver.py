@@ -8,9 +8,10 @@ used chapter 10 of book for pathlib library
 10/23/26
 """
 
-import json 
-
+import json  
+#pathlib works with the file paths and directories 
 from pathlib import Path 
+#import player class to have the game save data
 from player import Player 
 
 
@@ -18,7 +19,7 @@ from player import Player
 Default = Path("saves/save_game.json") 
 
 
-def save_game(player, file_path = "default"):
+def save_game(player, file_path = Default):
     """ makes a json file nd writes in it where 
     the player is at"""
 
@@ -34,6 +35,7 @@ def save_game(player, file_path = "default"):
 
         return True #if it happens it will return the boolean
 
+    #handles error that might happen when the data cant be made into a json
     except(TypeError, ValueError) as error:
         print(f"couldnt save the save the error is {error}")
 
@@ -44,22 +46,28 @@ def load_game( file_path = Default):
     will load the player prgogress from the json file 
     """
 
-    path = Path(file_path)
+    path = Path(file_path) #file path conversion making it into an object
 
     try:
+        #opening save file with the read mode and the utf-8 is encoding 
         with path.open("r", encoding = "utf-8")as save_file:
-            data = json.load(save_file)
 
+
+            data = json.load(save_file) #reading the json data and converting it into python data
+
+        #this will make sure that the loaded data is a dictonary 
         if not isinstance(data, dict):
             raise ValueError("not a json object")
 
+        #getting the name, current scene, and choices from the data
         name = data.get("name")
         current_scene =data.get("current_scene")
         choices = data.get("choices_made", [])
-
+        #making the player object again using the information from the json file 
         player = Player.from_dict(data)
         return player
 
+    #errors that may occur is handled with this 
     except (KeyError, TypeError, ValueError) as error:
         print(f"the game couldnt be loaded this is the error:{error}")
         return None
