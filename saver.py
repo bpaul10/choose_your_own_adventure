@@ -72,6 +72,8 @@ def load_game( file_path = Default):
         print(f"the game couldnt be loaded this is the error:{error}")
         return None
     except json.JSONDecodeError:
+        print("There was an error with the json file.")
         return None
     except FileNotFoundError:
+        print("The program could not find the file.")
         return None

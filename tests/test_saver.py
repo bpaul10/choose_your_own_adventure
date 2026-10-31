@@ -9,7 +9,8 @@ import json
 from player import Player
 from saver import save_game, load_game
 
-def test_save_n_loader(tmp_path): #t path is tempoary path 
+def test_save_n_loader(tmp_path): #tmp_path is tempoary path 
+    """makes sure the game is saving and loading correctly"""
     s_path = tmp_path / "save_game.json" #makes json file in the file path 
 
     player = Player("Jeff") #made a player

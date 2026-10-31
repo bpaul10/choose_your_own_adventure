@@ -167,14 +167,14 @@ STORY = {
 #Functions for scene management 
 
 def get_scene(scene_name):
-    #will get the scene from the story
+    """will get the scene from the story"""
     if scene_name not in STORY:
         raise ValueError (f"{scene_name} not in story ")
     return STORY[scene_name]
 
 
 def get_next_scene(scene_name, choice):
-    #will give the next scene and make sure it is real 
+    """will give the next scene and make sure it is real """
 
     scene = get_scene(scene_name)
     if choice not in scene["choices"]:

@@ -14,7 +14,7 @@ from story import STORY, get_scene, get_next_scene, the_ending
 from saver import save_game, load_game
 
 def show_scene(scene_name):
-    #creating a cleaner way to display the scene information 
+    """creating a cleaner way to display the scene information """
     scene = get_scene(scene_name) #intended use is to get the name from the story class
     print(f"\n{'-'*50}") #use as a seperator for clarity
     print(scene["title"]) #grabs title from scene dictonary 
@@ -59,7 +59,7 @@ def show_menu():
     print("3- Exit")
     print("Choose from the options please")
 
-    return get_choice({"1", "2"}) #obtaining and reutrning player menu
+    return get_choice({"1", "2", "3", "s", "S","q","Q"}) #obtaining and reutrning player menu
 
 def gameplay(player):
     """this is going to run the story in a loop unless player quits or finishes"""
