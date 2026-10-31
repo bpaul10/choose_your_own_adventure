@@ -12,13 +12,14 @@ class Player():
     def __init__(self, name, current_scene ="start" ):
         """initializing the player with the
         name and what scene they are going to be starting in"""
+        self.name = name
         self.current_scene= current_scene
-        self.choics_made = [] #keeping track with a list 
+        self.choices_made = [] #keeping track with a list 
 
     def make_choice (self, choice, next_scene):
-        """will keep track ooof a choice and then tell 
+        """will keep track of a choice and then tell 
         the program what the next scene will be"""
-        self.choics_made.append(choice) #adds the choice to the list of choices made
+        self.choices_made.append(choice) #adds the choice to the list of choices made
         self.current_scene = next_scene #updates current scene
 
     def send_to_dict(self):
@@ -28,7 +29,7 @@ class Player():
             "current_scene": self.current_scene, 
             "choices_made": self.choices_made, 
         }
-    
+
     def from_dict(cls, data): #creates object
 
         return cls( #making the instance of the class 
@@ -38,7 +39,7 @@ class Player():
             ).restore_choices(data.get("choices_made", [])) #brings back the saved choices from the list
     def restore_choices(self, choices):
         """will bring pback the players previous choices from list"""
-        self.choics_made= list(choices) #takes the player and then its attribute being th choices made and then updates them 
+        self.choices_made= list(choices) #takes the player and then its attribute being th choices made and then updates them 
 
         return self
 

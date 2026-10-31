@@ -31,7 +31,7 @@ def save_game(player, file_path = Default):
 
         with path.open("w", encoding="utf-8") as save_file:
             #saves the players data into the tile 
-            json.dump(player.to_dict(), save_file, indent=4)
+            json.dump(player.send_to_dict(), save_file, indent=4)
 
         return True #if it happens it will return the boolean
 
@@ -70,4 +70,8 @@ def load_game( file_path = Default):
     #errors that may occur is handled with this 
     except (KeyError, TypeError, ValueError) as error:
         print(f"the game couldnt be loaded this is the error:{error}")
+        return None
+    except json.JSONDecodeError:
+        return None
+    except FileNotFoundError:
         return None
